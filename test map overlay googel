@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Ground Overlays</title>
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0px;
+        padding:0px;
+      }
+      #map {
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+ 
+<button onclick="alert(map.getBounds());">Get bounds</button>
+<br><br>
+
+    <div id="map"></div>
+    <script>
+// This example uses a GroundOverlay to place an image on the map
+// showing an antique map of Newark, NJ.
+
+var historicalOverlay;
+
+function initMap() {
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 16,
+    center: {lat:  -6.17674265048887, lng: 106.82727813720703}
+  });
+
+  var imageBounds = {
+    north: -6.167505335762652,
+    south: -6.182438558698303,
+    east: 106.84529185295105,
+    west: 106.81130290031433
+  };
+
+  historicalOverlay = new google.maps.GroundOverlay(
+      'http://katamaran.creativeincubator.net/mapGoogle/map-overlay.png',
+      imageBounds, {opacity:0.7});
+  historicalOverlay.setMap(map);
+}
+
+
+
+    </script>
+    
+
+
+    
+    
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJI0MxnCHnniX1oqD2fdYbFkJv3on3GBM&callback=initMap&signed_in=true" async defer>
+    </script>
+  </body>
+</html>
